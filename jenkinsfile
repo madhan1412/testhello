@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     stages {
-        stage ('Compile Stage') {
+        stage ('It will compile the source code') {
 
             steps {
                 withMaven(maven : 'maven') {
@@ -11,7 +11,7 @@ pipeline {
             }
         }
 
-        stage ('Testing Stage') {
+        stage ('It will perform unit testing') {
 
             steps {
                 withMaven(maven : 'maven') {
@@ -21,7 +21,7 @@ pipeline {
         }
 
 
-        stage ('Deployment Stage') {
+        stage ('IT will install to local maven repository which is .m2') {
             steps {
                 withMaven(maven : 'maven') {
                     sh 'mvn install'
